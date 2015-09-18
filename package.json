@@ -1,0 +1,17 @@
+{
+  "name": "tcbot",
+  "version": "1.0.0",
+  "description": "bot for tixchat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "websocket",
+    "bot",
+    "tixchat"
+  ],
+  "author": "XoBpawok",
+  "license": "ISC"
+}
