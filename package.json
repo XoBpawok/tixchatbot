@@ -13,5 +13,8 @@
     "tixchat"
   ],
   "author": "XoBpawok",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "websocket": "^1.0.21"
+  }
 }
