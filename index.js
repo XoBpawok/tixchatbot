@@ -13,7 +13,10 @@ authWS.on('connect', function(connection) {
   connection.send('["request",{"method":"login","params":{"email":"kralo07@rambler.ru","password":"monkey"},"id":1}]');
 
   connection.on('message', function(message) {
-    message.type === 'utf8' && getCookie(message.utf8Data)
+    if (message.type === 'utf8') {
+      getCookie(message.utf8Data);
+      startMainWS(cookie);
+    }
   });
 
   function getCookie(msg) {
@@ -23,7 +26,6 @@ authWS.on('connect', function(connection) {
       if (msg[1].id === 1) {
         cookie = msg[1].data.cookie
         console.log('got cookie: ' + cookie);
-        startMainWS(cookie);
       }
     }
   }
