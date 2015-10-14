@@ -10,12 +10,16 @@ authWS.on('connect', function(connection) {
 
   connection.send('["version",[2,"TiXchat web","b6c975f971ea"]]');
   //replace email and password
-  connection.send('["request",{"method":"login","params":{"email":"email@example.com","password":"password"},"id":1}]');
+  connection.send('["request",{"method":"login","params":{"email":"kralo07@rambler.ru","password":"monkey"},"id":1}]');
 
   connection.on('message', function(message) {
     if (message.type === 'utf8') {
-      getCookie(message.utf8Data);
-      startMainWS(cookie);
+      var cookie = getCookie(message.utf8Data);
+      if (cookie) {
+        startMainWS(cookie);
+        console.log('closing authWS...');
+        connection.close();
+      }
     }
   });
 
@@ -28,6 +32,7 @@ authWS.on('connect', function(connection) {
         console.log('got cookie: ' + cookie);
       }
     }
+    return cookie;
   }
 });
 
