@@ -10,7 +10,7 @@ authWS.on('connect', function(connection) {
 
   connection.send('["version",[2,"TiXchat web","b6c975f971ea"]]');
   //replace email and password
-  connection.send('["request",{"method":"login","params":{"email":"kralo07@rambler.ru","password":"monkey"},"id":1}]');
+  connection.send('["request",{"method":"login","params":{"email":"email@example.com","password":"password"},"id":1}]');
 
   connection.on('message', function(message) {
     if (message.type === 'utf8') {
